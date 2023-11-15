@@ -1,5 +1,6 @@
 from collections import deque
 from time import sleep
+from threading import Thread
 
 
 def contador(name, stop):
@@ -44,8 +45,6 @@ print(s)
 s.add_new(contador("RunTime A", 10))
 s.add_new(contador_regressivo("RunTime B", 20))
 print(s)
-
-from threading import Thread
 
 t = Thread(target=s.run, daemon=True)
 
