@@ -96,3 +96,7 @@ coro = média()
 ### Corrotinas
 
 Corrotinas são rotinas que podem ser interrompidas e depois retornar ao ponto onde pararam. Elas são muito úteis para tarefas que envolvem I/O, como ler e escrever em arquivos, sockets, etc. Na engenharia de dados, por exemplo, podemos usar corrotinas para ler arquivos grandes e processá-los em pequenos pedaços, sem precisar carregar o arquivo inteiro na memória. Outro exemplo, é o uso de corrotinas para fazer requisições HTTP em paralelo.
+
+## Primer
+
+O exemplo 05 é um primer de como usar corrotinas. Criarmos um decorador que realizar o next(coro) inicial, para que não seja necessário realizar o next(coro) toda vez que for executar uma corrotina.
