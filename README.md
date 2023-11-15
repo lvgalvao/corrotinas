@@ -63,3 +63,36 @@ O `yield` produz e o `next` consome. O `yield` é um produtor e o `next` é um c
 
 No exemplo 02, colocamos nossas funções dentro de um Thread. Dessa forma conseguimos inserir novas funções entre a execução principal.
 
+## Yield como corrotina
+
+No exemplo 03, adicionamos os métodos `send`. O método `send` envia um valor para a corrotina. Ou seja, o yield é um produtor e o send é um consumidor.
+
+## `send` vs `next`
+
+O `send` é um `next` com um valor. O `next` não consegue enviar um valor para a corrotina, apenas o `send` consegue.
+
+## Yield como produtor e consumidor ao mesmo tempo
+
+No exemplo 04, temos o Yield atuando como produto e consumidor ao mesmo tempo.
+
+```python
+def média():
+    total: int = 0
+    contador = 0
+    média = None
+    while True:
+        entrada = yield média
+        total += entrada
+        contador += 1
+        média = total / contador
+
+
+coro = média()
+# next(coro)
+# coro.send(10)
+# coro.send(20)
+```
+
+### Corrotinas
+
+Corrotinas são rotinas que podem ser interrompidas e depois retornar ao ponto onde pararam. Elas são muito úteis para tarefas que envolvem I/O, como ler e escrever em arquivos, sockets, etc. Na engenharia de dados, por exemplo, podemos usar corrotinas para ler arquivos grandes e processá-los em pequenos pedaços, sem precisar carregar o arquivo inteiro na memória. Outro exemplo, é o uso de corrotinas para fazer requisições HTTP em paralelo.
